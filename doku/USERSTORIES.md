@@ -1,6 +1,6 @@
 **User Stories**
 
-*Functionality*
+*Functionality*<br>
 As a User i want to be able to upload my codesnippet <br>
 As a User i want to have my own Account<br>
 As a User i want to be able to create a new Account<br>
