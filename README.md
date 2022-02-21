@@ -1,2 +1,2 @@
 # snpt
-basically pastebin but better
+basically pastebin but "better"
