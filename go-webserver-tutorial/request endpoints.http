@@ -1,0 +1,25 @@
+//get all albums
+GET http://localhost:8080/albums
+Accept: application/json
+
+###
+
+//get specific album
+GET http://localhost:8080/albums/2
+Accept: application/json
+
+###
+
+//add a new album
+POST http://localhost:8080/albums
+Content-Type: application/json
+
+{
+  "id": "4",
+  "title": "Peter",
+  "artist": "Au de Peter",
+  "price": 2.95
+}
+
+###
+
