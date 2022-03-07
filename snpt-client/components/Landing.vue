@@ -3,7 +3,7 @@
       <div class="landing flex">
         <div class="logo">SNPT</div>
         <div class="sub">F*#! Pastebin</div>
-        <a href="" class="arrow">&#8609;</a>
+        <NuxtLink to="/upload" class="arrow">&#8609;</NuxtLink>
     </div>
     
   </div>

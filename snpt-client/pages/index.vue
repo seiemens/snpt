@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="land">
+    <div>
       <Landing/>
     </div>
   </div>
@@ -8,10 +8,10 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+    head() {
+    return {
+      title: "SNPT | Home",
+    };
+  }  
 }
-</script> 
-
-<style scoped>
-
-</style>
+</script>
