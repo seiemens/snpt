@@ -10,8 +10,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin" //webservice dings bums
 	"net/http"
+
+	"github.com/gin-gonic/gin" //webservice dings bums
 )
 
 // album represents data about a record album.
@@ -34,7 +35,7 @@ func getAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, albums)
 }
 
-func main() {
+func main2() {
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
 	router.GET("/albums/:id", getAlbumByID)
