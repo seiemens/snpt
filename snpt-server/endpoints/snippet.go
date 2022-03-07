@@ -8,7 +8,7 @@ import (
 )
 
 func GetSnippetByID(c *gin.Context) {
-	id := c.Param("id")
+	//id := c.Param("id")
 	// Loop over the list of albums, looking for
 	// an album whose ID value matches the parameter.
 	//for _, a := range albums {
