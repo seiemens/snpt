@@ -1,12 +1,11 @@
-package mongo
+package lib
 
 import (
 	"context"
 	"fmt"
 	"log"
-	"os"
+	"snpt/models"
 
-	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -17,17 +16,6 @@ import (
 var Uri string = goDotEnvVariable("MONGO_URL")
 var Client *mongo.Client
 
-func goDotEnvVariable(key string) string {
-
-	// load .env file
-	err := godotenv.Load("../.env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-	return os.Getenv(key)
-}
-
 func ConnectToDb() {
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(Uri))
 	if err != nil {
@@ -35,7 +23,7 @@ func ConnectToDb() {
 	}
 
 	// Ping the primary
-	if err := client.Ping(context.TODO(), readpref.Primary()); err != nil {
+	if err := client.Ping(context.Background(), readpref.Primary()); err != nil {
 		panic(err)
 	}
 	Client = client
@@ -49,15 +37,15 @@ func CloseDbConnection(client *mongo.Client) {
 	}
 }
 
-func GetMongoSnippetByKey(param string, value interface{}) {
+func GetMongoSnippetByKey(key string, value interface{}) []models.Snippet {
 	snptCollection := *Client.Database("snpt").Collection("snippets")
-	res, err := snptCollection.Find(context.Background(), bson.D{{param, primitive.Regex{Pattern: "^.*" + value.(string) + ".*", Options: ""}}})
+	res, err := snptCollection.Find(context.Background(), bson.D{{key, primitive.Regex{Pattern: "^.*" + value.(string) + ".*", Options: ""}}})
 	if err != nil {
 		log.Fatal(err)
 	}
-	var snippets []bson.M
+	var snippets []models.Snippet
 	if err = res.All(context.Background(), &snippets); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(snippets)
+	return snippets
 }
