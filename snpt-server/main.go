@@ -2,6 +2,7 @@ package main
 
 import (
 	"snpt/endpoints"
+	"snpt/mongo-lib"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,6 +10,9 @@ import (
 // Connection URI
 
 func main() {
+	mongo.ConnectToDb()
+	mongo.GetMongoSnippetByKey("username", "peter")
+
 	router := gin.Default()
 	router.GET("/s/:id", endpoints.GetSnippetByID)
 	router.GET("/s", endpoints.GetSnippets)
