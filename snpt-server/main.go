@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
-	"os"
-
+	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"log"
+	"os"
+	"snpt/endpoints"
 )
 
 var uri string = goDotEnvVariable("MONGO_URL")
@@ -27,7 +28,9 @@ func goDotEnvVariable(key string) string {
 }
 
 func main() {
-	// Create a new client and connect to the server
+	router := gin.Default()
+	router.GET("/s/:id", endpoints.GetSnippetByID)
+	router.GET("/s", endpoints.GetSnippets)
 
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
@@ -43,4 +46,9 @@ func main() {
 		panic(err)
 	}
 	fmt.Println("Successfully connected and pinged.")
+
+	errGin := router.Run("localhost:3333")
+	if errGin != nil {
+		return
+	}
 }

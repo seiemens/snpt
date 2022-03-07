@@ -10,9 +10,8 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin" //webservice dings bums
+	"net/http"
 )
 
 // album represents data about a record album.
