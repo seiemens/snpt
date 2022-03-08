@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: server_lin
-        path: ./snpt.server/main
+        path: ./snpt-server/main
         
     - name: Build Windows
       run: env GOOS=windows GOARCH=amd64 go build -v ./main.go
@@ -39,6 +39,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: server_win.exe
-        path: ./snpt.server/main.exe
+        path: ./snpt-server/main.exe
 
 
