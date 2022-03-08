@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div>
-      <Landing/>
+    <Header/>
+    <div class="flex">
+        <h3>well wahtever this shit is</h3>
     </div>
   </div>
 </template>
@@ -10,7 +11,7 @@
 export default {
     head() {
     return {
-      title: "SNPT",
+      title: "SNPT | Home",
     };
   }  
 }

@@ -1,16 +1,18 @@
 <template>
   <div>
     <div>
-      <Landing/>
+      <Header/>
     </div>
   </div>
 </template>
+
+<style src="~/assets/styles/search.css"></style>
 
 <script>
 export default {
     head() {
     return {
-      title: "SNPT",
+      title: "SNPT | Search",
     };
   }  
 }

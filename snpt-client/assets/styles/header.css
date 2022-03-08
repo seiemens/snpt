@@ -7,12 +7,16 @@ h1 {
 .header {
   font-family: "Lato", sans-serif;
   background-color: #f1f1f1;
-  height: 10rem;
+  height: 8rem;
   color: rgb(0, 0, 0);
   font-style: italic;
 }
+.header a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
 .nav {
-  padding: 2rem;
+  padding: 1rem;
 }
 .nav a {
   display: block;

@@ -1,8 +1,8 @@
 <template>
   <div class="header">   
-    <h1>SNPT</h1>
+    <h1><NuxtLink to="/">SNPT</NuxtLink></h1>
        <div class="nav">
-        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/home">Home</NuxtLink>
         <NuxtLink to="/upload">Upload</NuxtLink>
         <NuxtLink to="/search">Search</NuxtLink>
       </div>
