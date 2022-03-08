@@ -29,8 +29,11 @@ jobs:
     - name: Build
       run: go build -v ./main.go
     
+    - name: Info
+      run: ls
+    
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: server
-        path: ./build/libs/CustomCommands-1.0-all.jar
+        path: ./main
