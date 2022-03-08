@@ -9,8 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./snpt/snpt-server
+    defaults:
+      run:
+        working-directory: ./snpt-server
     steps:
     - uses: actions/checkout@v2
 
