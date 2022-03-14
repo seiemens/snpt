@@ -11,8 +11,6 @@ func TestEnvVarValue(t *testing.T) {
 	expected := "petermeier"
 	if value != expected {
 		t.Errorf("Value was incorrect, got %s, want %s", value, expected)
-	} else {
-		t.Log("env var test successful")
 	}
 }
 
@@ -22,7 +20,13 @@ func TestEnvVarNonExistentVeliu(t *testing.T) {
 	expected := "NOT FOUND"
 	if value != expected {
 		t.Errorf("Value was incorrect, got %s, want %s", value, expected)
-	} else {
-		t.Log("Non existent env var test successful")
+	}
+}
+
+func TestRandomString(t *testing.T) {
+	expected := 5
+	value := util.GenerateRandomString(5, false)
+	if len(value) != expected {
+		t.Errorf("Value was incorrect, got %s, want %s", value, expected)
 	}
 }
