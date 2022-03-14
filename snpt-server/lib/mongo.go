@@ -1,3 +1,7 @@
+/*
+Created by Jordan
+Date: 7.3.22
+*/
 package lib
 
 import (

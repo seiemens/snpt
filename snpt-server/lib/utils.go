@@ -1,7 +1,14 @@
+/*
+Created by Jordan
+Date: 7.3.22
+*/
 package lib
 
 import (
-	"log"
+
+	"fmt"
+	"github.com/joho/godotenv"
+
 	"math/rand"
 	"os"
 	"time"
@@ -15,9 +22,13 @@ func goDotEnvVariable(key string) string {
 	err := godotenv.Load("../.env")
 
 	if err != nil {
-		log.Fatalf("Error loading .env file")
+		fmt.Println("Error loading .env file")
 	}
-	return os.Getenv(key)
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return "NOT FOUND"
+	}
+	return value
 }
 
 func GenerateRandomString(lenght int, includeSpecial bool) string {

@@ -1,3 +1,7 @@
+/*
+Created by Ramon
+Date: 7.3.22
+*/
 package models
 
 type Snippet struct {

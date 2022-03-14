@@ -1,3 +1,7 @@
+/*
+Created by Ramon
+Date: 7.3.22
+*/
 package main
 
 import (
@@ -35,7 +39,8 @@ func main() {
 	router := gin.Default()
 	router.GET("/s/:id", endpoints.GetSnippetByID)
 	router.GET("/s", endpoints.GetSnippets)
-	router.GET("/cookie", endpoints.CheckAndCreateCookie)
+	router.GET("/cookie", endpoints.CreateCookie)
+	router.POST("/create", endpoints.CreateSnippet)
 
 	errGin := router.Run("localhost:3333")
 	if errGin != nil {
