@@ -6,9 +6,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"snpt/endpoints"
 	"snpt/lib"
+
+	"github.com/gin-gonic/gin"
 )
 
 // Connection URI
@@ -20,6 +21,7 @@ func main() {
 		fmt.Println(s.Cookie)
 	}
 
+	
 	//insert sample data
 
 	//x := models.Snippet{

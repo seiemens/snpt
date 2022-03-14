@@ -5,7 +5,12 @@ Date: 7.3.22
 package endpoints
 
 import (
+
+	mongo "snpt/lib"
+
 	"github.com/gin-gonic/gin"
+
+
 	"net/http"
 	util "snpt/lib"
 )
@@ -17,7 +22,7 @@ func GetSnippetByID(c *gin.Context) {
 }
 
 func GetSnippets(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, gin.H{"lol": "lol"})
+	c.IndentedJSON(http.StatusOK, mongo.GetAllSnippets())
 }
 
 func CreateSnippet(c *gin.Context) {
