@@ -66,3 +66,16 @@ func GetAllSnippets() []models.Snippet {
 	}
 	return snippets
 }
+
+func CreateSnippet(title, content, cookie string) {
+	x := models.Snippet{
+		ID:      GenerateRandomString(6, false),
+		Title:   title,
+		Content: content,
+		Cookie:  cookie,
+	}
+
+	snptDB := Client.Database("snpt")
+	snippetCollection := snptDB.Collection("snippets")
+	snippetCollection.InsertOne(context.Background(), x)
+}
