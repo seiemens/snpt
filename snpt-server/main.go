@@ -5,12 +5,12 @@ Date: 7.3.22
 package main
 
 import (
-	"fmt"
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"snpt/endpoints"
 	"snpt/lib"
 	"time"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 // Connection URI
