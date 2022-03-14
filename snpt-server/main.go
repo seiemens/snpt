@@ -6,11 +6,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"snpt/endpoints"
 	"snpt/lib"
-	"time"
 )
 
 // Connection URI
@@ -36,28 +34,29 @@ func main() {
 	//snippetResult, err := snippetCollection.InsertOne(context.TODO(), x)
 	//fmt.Println(snippetResult, err)
 
-	router := gin.Default()
+	router := gin.New()
+	router.Use(CORSMiddleware())
+
 	router.GET("/s/:id", endpoints.GetSnippetByID)
 	router.GET("/s", endpoints.GetSnippets)
 	router.GET("/cookie", endpoints.CreateCookie)
 	router.POST("/create", endpoints.CreateSnippet)
 
-	// CORS for https://foo.com and https://github.com origins, allowing:
-	// - PUT and PATCH methods
-	// - Origin header
-	// - Credentials share
-	// - Preflight requests cached for 12 hours
-	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
-		AllowMethods:     []string{"PUT", "PATCH", "GET", "POST"},
-		AllowHeaders:     []string{"Origin", "Access-Control-Allow-Origin"},
-		ExposeHeaders:    []string{"Content-Length"},
-		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
-	}))
-
 	errGin := router.Run("localhost:3333")
 	if errGin != nil {
 		return
+	}
+}
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Header("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+		c.Next()
 	}
 }
