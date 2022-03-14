@@ -1,3 +1,7 @@
+/*
+Created by Jordan
+Date: 7.3.22
+*/
 package lib
 
 import (
@@ -11,7 +15,7 @@ import (
 func goDotEnvVariable(key string) string {
 
 	// load .env file
-	err := godotenv.Load(".env")
+	err := godotenv.Load("../.env")
 
 	if err != nil {
 		fmt.Println("Error loading .env file")
