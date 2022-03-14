@@ -42,6 +42,8 @@ jobs:
         path: ./snpt-server/main.exe
   test:
     runs-on: ubuntu-latest
+    env:
+      ENV_VAR_TEST: petermeier
     defaults:
       run:
         working-directory: ./snpt-server
