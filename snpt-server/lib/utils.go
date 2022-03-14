@@ -8,7 +8,6 @@ import (
 	"fmt"
 
 	"github.com/joho/godotenv"
-
 	"math/rand"
 	"os"
 	"time"
