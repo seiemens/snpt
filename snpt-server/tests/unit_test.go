@@ -25,8 +25,8 @@ func TestEnvVarNonExistentVeliu(t *testing.T) {
 
 func TestRandomString(t *testing.T) {
 	expected := 5
-	value := util.GenerateRandomString(5, false)
-	if len(value) != expected {
-		t.Errorf("Value was incorrect, got %s, want %s", value, expected)
+	value := len(util.GenerateRandomString(5, false))
+	if value != expected {
+		t.Errorf("Value was incorrect, got %d, want %d", value, expected)
 	}
 }
