@@ -1,0 +1,30 @@
+.popup {
+  position: absolute;
+  bottom: 0;
+  margin: 1rem;
+  display: block;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f3f3f3;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: rgb(75, 75, 75);
+  box-shadow: #dfdfdf -0.3rem 0.3rem;
+  max-width: 15rem;
+  transition: 1s;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+a:hover {
+  text-decoration: underline;
+  color: rgb(109, 109, 109);
+  cursor: pointer;
+}
+
+#tac {
+  font-style: italic;
+}

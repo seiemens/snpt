@@ -1,18 +1,27 @@
 <template>
   <div>
-    <Header/>
-    <div class="flex">
-        <h3>well wahtever this shit is</h3>
+    <Header />
+    <div class="flex home">
+      <h3>Welcome to snpt!</h3>
+      <div class="home">
+        <h4>
+          Enjoy our Service, which is definitely better than pastebin.
+          <br />Legal note: By using this page you automatically agree to the
+          terms of service and use of biscuits, even if you dont accept the
+          fancy little popup.
+        </h4>
+      </div>
     </div>
+    <Biscuitpopup />
   </div>
 </template>
 
 <script>
 export default {
-    head() {
+  head() {
     return {
-      title: "SNPT | Home",
+      Biscuitpopuptitle: "SNPT | Home",
     };
-  }  
-}
+  },
+};
 </script>

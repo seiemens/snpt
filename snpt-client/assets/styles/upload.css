@@ -2,7 +2,7 @@ input,
 button,
 textarea {
   font-family: "Lato", sans-serif;
-
+  cursor: pointer;
   display: block;
   border: none;
   border-radius: 0.5rem;
