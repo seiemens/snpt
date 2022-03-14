@@ -37,3 +37,10 @@ func CreateCookie(c *gin.Context) {
 	}
 	c.IndentedJSON(http.StatusOK, gin.H{"cookie": cookie})
 }
+func EditSnippet(c *gin.Context) {
+	cookie := c.Param("cookie")
+	title := c.Param("title")
+	content := c.Param("content")
+	id := c.Param("id")
+	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.EditSnippet(id, title, content, cookie)})
+}
