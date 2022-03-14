@@ -80,3 +80,30 @@ func CreateSnippet(title, content, cookie string) interface{} {
 	res, _ := snippetCollection.InsertOne(context.Background(), x)
 	return res.InsertedID
 }
+
+func EditSnippet(id, title, content, cookie string) string {
+
+	snippetCollection := Client.Database("snpt").Collection("snippets")
+	var shouldBeCookie string
+	test := GetMongoSnippetByKey("id", id)
+	for _, snippet := range test {
+		shouldBeCookie = snippet.Cookie
+	}
+
+	if shouldBeCookie == cookie {
+		filter := bson.M{"id": bson.M{"$eq": id}}
+		update := bson.M{"$set": bson.M{"title": title, "content": content}}
+		_, err := snippetCollection.UpdateOne(
+			context.Background(),
+			filter,
+			update,
+		)
+		if err != nil {
+			log.Fatal(err)
+		}
+		return "Updated Document"
+	} else {
+		return "You are most likely perhaps probably maybe possibly not the owner of this Item."
+	}
+
+}

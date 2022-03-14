@@ -17,10 +17,6 @@ import (
 
 func main() {
 	lib.ConnectToDb()
-	snippets := lib.GetMongoSnippetByKey("username", "eter")
-	for _, s := range snippets {
-		fmt.Println(s.Cookie)
-	}
 
 	//insert sample data
 
@@ -41,6 +37,7 @@ func main() {
 	router.GET("/s", endpoints.GetSnippets)
 	router.GET("/cookie", endpoints.CreateCookie)
 	router.POST("/create", endpoints.CreateSnippet)
+	router.POST("/edit", endpoints.EditSnippet)
 
 	// CORS for https://foo.com and https://github.com origins, allowing:
 	// - PUT and PATCH methods
