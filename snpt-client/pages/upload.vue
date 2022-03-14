@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Header />
     <h3 class="flex">New SNPT</h3>
     <div class="flex">
       <form action="" method="post" v-on:submit.prevent="onSubmit()" id="frm">
@@ -16,7 +16,7 @@
           name="snptdesc"
           id="desc"
           placeholder="Paste your snippet here"
-          v-model="desc"
+          v-model="content"
           required
           cols="60"
           rows="10"
@@ -46,7 +46,7 @@ export default {
       type: String,
       required: true,
     },
-    desc: {
+    content: {
       type: String,
       required: true,
     },
@@ -55,10 +55,10 @@ export default {
     onSubmit() {
       let data = {
         title: this.title,
-        desc: this.desc,
+        content: this.content,
       };
       axios
-        .post("http://localhost:3333/", data, {
+        .post("http://localhost:3333/create", data, {
           headers: {
             Accept: "application/json",
           },
