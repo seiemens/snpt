@@ -17,7 +17,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
-var Uri string = goDotEnvVariable("MONGO_URL")
+var Uri = GoDotEnvVariable("MONGO_URL")
 var Client *mongo.Client
 
 func ConnectToDb() {
