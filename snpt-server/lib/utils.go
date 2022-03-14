@@ -5,15 +5,13 @@ Date: 7.3.22
 package lib
 
 import (
-
 	"fmt"
+
 	"github.com/joho/godotenv"
 
 	"math/rand"
 	"os"
 	"time"
-
-	"github.com/joho/godotenv"
 )
 
 func goDotEnvVariable(key string) string {
