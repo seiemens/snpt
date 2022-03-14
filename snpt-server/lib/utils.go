@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-func goDotEnvVariable(key string) string {
+func GoDotEnvVariable(key string) string {
 
 	// load .env file
 	err := godotenv.Load("../.env")
