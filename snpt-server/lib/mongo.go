@@ -68,11 +68,23 @@ func GetAllSnippets() []models.Snippet {
 }
 
 func CreateSnippet(title, content, cookie string) interface{} {
-	x := models.Snippet{
-		ID:      GenerateRandomString(6, false),
-		Title:   title,
-		Content: content,
-		Cookie:  cookie,
+
+	var idExist bool = true
+	var x models.Snippet
+	for idExist {
+		idExist = false
+		x = models.Snippet{
+			ID:      GenerateRandomString(6, false),
+			Title:   title,
+			Content: content,
+			Cookie:  cookie,
+		}
+		snippets := GetAllSnippets()
+		for _, value := range snippets {
+			if value.ID == x.ID {
+				idExist = true
+			}
+		}
 	}
 
 	snptDB := Client.Database("snpt")
