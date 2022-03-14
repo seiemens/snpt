@@ -5,7 +5,9 @@ Date: 7.3.22
 package endpoints
 
 import (
+	"fmt"
 	mongo "snpt/lib"
+	"snpt/models"
 
 	"github.com/gin-gonic/gin"
 
@@ -24,10 +26,12 @@ func GetSnippets(c *gin.Context) {
 }
 
 func CreateSnippet(c *gin.Context) {
-	cookie := c.Param("cookie")
-	title := c.Param("title")
-	content := c.Param("content")
-	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.CreateSnippet(title, content, cookie)})
+	var snpt models.Snippet
+	err := c.BindJSON(&snpt)
+	if err != nil {
+		fmt.Println(err)
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.CreateSnippet(snpt.Title, snpt.Content, snpt.Cookie)})
 }
 
 func CreateCookie(c *gin.Context) {
@@ -38,9 +42,10 @@ func CreateCookie(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, gin.H{"cookie": cookie})
 }
 func EditSnippet(c *gin.Context) {
-	cookie := c.Param("cookie")
-	title := c.Param("title")
-	content := c.Param("content")
-	id := c.Param("id")
-	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.EditSnippet(id, title, content, cookie)})
+	var snpt models.Snippet
+	err := c.BindJSON(&snpt)
+	if err != nil {
+		fmt.Println(err)
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.EditSnippet(snpt.ID, snpt.Title, snpt.Content, snpt.Cookie)})
 }
