@@ -6,10 +6,11 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 	"snpt/endpoints"
 	"snpt/lib"
-
-	"github.com/gin-gonic/gin"
+	"time"
 )
 
 // Connection URI
@@ -21,7 +22,6 @@ func main() {
 		fmt.Println(s.Cookie)
 	}
 
-	
 	//insert sample data
 
 	//x := models.Snippet{
@@ -41,6 +41,23 @@ func main() {
 	router.GET("/s", endpoints.GetSnippets)
 	router.GET("/cookie", endpoints.CreateCookie)
 	router.POST("/create", endpoints.CreateSnippet)
+
+	// CORS for https://foo.com and https://github.com origins, allowing:
+	// - PUT and PATCH methods
+	// - Origin header
+	// - Credentials share
+	// - Preflight requests cached for 12 hours
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"localhost"},
+		AllowMethods:     []string{"PUT", "PATCH", "GET", "POST"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "https://github.com"
+		},
+		MaxAge: 12 * time.Hour,
+	}))
 
 	errGin := router.Run("localhost:3333")
 	if errGin != nil {
