@@ -10,8 +10,6 @@ import (
 	"snpt/lib"
 )
 
-// Connection URI
-
 func main() {
 	lib.ConnectToDb()
 

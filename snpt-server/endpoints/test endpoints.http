@@ -12,3 +12,15 @@ Accept: application/json
 ###
 GET http://localhost:3333/s
 Accept: application/json
+
+###
+POST http://localhost:3333/create
+Accept: application/json
+
+{ "title": "hello", "content": "hello", "cookie": "hello"}
+
+###
+POST http://localhost:3333/edit
+Accept: application/json
+
+{ "title": "hello2", "content": "hello2", "cookie": "hello", "id": "D9Cq8V"}
