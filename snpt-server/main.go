@@ -18,20 +18,6 @@ import (
 func main() {
 	lib.ConnectToDb()
 
-	//insert sample data
-
-	//x := models.Snippet{
-	//	ID:      lib.GenerateRandomString(6, false),
-	//	Title:   "Mongo Du Mongo",
-	//	Content: "Wieso gids dich eigentlich. wieso isch dis find so \"nice\" am been?",
-	//	Cookie:  "pretendtoberandom",
-	//}
-
-	//snptDB := lib.Client.Database("snpt")
-	//snippetCollection := snptDB.Collection("snippets")
-	//snippetResult, err := snippetCollection.InsertOne(context.TODO(), x)
-	//fmt.Println(snippetResult, err)
-
 	router := gin.Default()
 	router.GET("/s/:id", endpoints.GetSnippetByID)
 	router.GET("/s", endpoints.GetSnippets)
