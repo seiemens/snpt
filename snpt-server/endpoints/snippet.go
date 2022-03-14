@@ -5,11 +5,9 @@ Date: 7.3.22
 package endpoints
 
 import (
-
 	mongo "snpt/lib"
 
 	"github.com/gin-gonic/gin"
-
 
 	"net/http"
 	util "snpt/lib"
@@ -26,7 +24,10 @@ func GetSnippets(c *gin.Context) {
 }
 
 func CreateSnippet(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, gin.H{"lol": "soos"})
+	cookie := c.Param("cookie")
+	title := c.Param("title")
+	content := c.Param("content")
+	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.CreateSnippet(title, content, cookie)})
 }
 
 func CreateCookie(c *gin.Context) {
