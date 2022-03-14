@@ -56,6 +56,6 @@ jobs:
       - name: Install Modules
         run: go get -d
 
-      - name: Build Linux
-        run: go test snpt/test
+      - name: Test Golang
+        run: go test ./tests/envvar_test.go
 
