@@ -49,3 +49,16 @@ func GetMongoSnippetByKey(key string, value interface{}) []models.Snippet {
 	}
 	return snippets
 }
+
+func GetAllSnippets() []models.Snippet {
+	snptCollection := *Client.Database("snpt").Collection("snippets")
+	cursor, err := snptCollection.Find(context.Background(), bson.M{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	var snippets []models.Snippet
+	if err = cursor.All(context.Background(), &snippets); err != nil {
+		log.Fatal(err)
+	}
+	return snippets
+}

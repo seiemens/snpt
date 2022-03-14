@@ -1,8 +1,9 @@
 package endpoints
 
 import (
-	"github.com/gin-gonic/gin"
 	mongo "snpt/lib"
+
+	"github.com/gin-gonic/gin"
 
 	"net/http"
 )
@@ -14,7 +15,7 @@ func GetSnippetByID(c *gin.Context) {
 }
 
 func GetSnippets(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, gin.H{"lol": "lol"})
+	c.IndentedJSON(http.StatusOK, mongo.GetAllSnippets())
 }
 
 func CheckAndCreateCookie(c *gin.Context) {
