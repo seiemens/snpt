@@ -58,3 +58,12 @@ func DeleteSnippet(c *gin.Context) {
 	}
 	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.DeleteSnippet(snpt.ID, snpt.Cookie)})
 }
+
+func DeleteAllSnippets(c *gin.Context) {
+	var snpt models.Snippet
+	err := c.BindJSON(&snpt)
+	if err != nil {
+		fmt.Println(err)
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"answer": util.DeleteAllSnippetsByCookie(snpt.Cookie)})
+}

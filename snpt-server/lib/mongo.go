@@ -67,6 +67,16 @@ func GetAllSnippets() []models.Snippet {
 	return snippets
 }
 
+func DeleteAllSnippetsByCookie(cookie string) interface{} {
+	for _, v := range GetAllSnippets() {
+		if v.Cookie == cookie {
+			DeleteSnippet(v.ID, v.Cookie)
+		}
+	}
+
+	return "oge"
+}
+
 func CreateSnippet(title, content, cookie string) interface{} {
 
 	var idExist bool = true
