@@ -17,10 +17,22 @@ Accept: application/json
 POST http://localhost:3333/create
 Accept: application/json
 
-{ "title": "hello", "content": "hello", "cookie": "hello"}
+{ "title": "jordan", "content": "du", "cookie": "mongo"}
 
 ###
 POST http://localhost:3333/edit
 Accept: application/json
 
-{ "title": "hello2", "content": "hello2", "cookie": "hello", "id": "D9Cq8V"}
+{ "id":"stJAHs", "title": "jordan", "content": "spastigrind", "cookie": "mongo"}
+
+###
+DELETE http://localhost:3333/delete
+Accept: application/json
+
+{ "id":"OLxuS0", "cookie": "IkXo6uRUikQ8x35bFtZaRt8SCXt0wD23mqyVlYUjOGTP8IW6oeTFIKYIDxHppaPW83t38"}
+
+###
+DELETE http://localhost:3333/deleteallbycookie
+Accept: application/json
+
+{"cookie": "mongo"}
