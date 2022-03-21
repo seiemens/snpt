@@ -1,18 +1,24 @@
 /*
 Created by Jordan
 Date: 7.3.22
+functions:
+	GoDotEnvVariable
+	GenerateRandomString
 */
 package lib
 
 import (
 	"fmt"
 
-	"github.com/joho/godotenv"
 	"math/rand"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
+//Gets all the environment Variables
+//Values: key(DB connection String)
 func GoDotEnvVariable(key string) string {
 
 	// load .env file
@@ -28,6 +34,8 @@ func GoDotEnvVariable(key string) string {
 	return value
 }
 
+//Creates a Random String with normal characters or if needed special characters
+//values: length(the length of the demanded string), includeSpecial(if SpecialCharacters are demanded)
 func GenerateRandomString(lenght int, includeSpecial bool) string {
 
 	var letterRunes []rune
