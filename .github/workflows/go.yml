@@ -1,0 +1,63 @@
+name: Go
+
+on:
+  push:
+    branches: [ masta ]
+  pull_request:
+    branches: [ masta ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./snpt-server
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+      
+    - name: Install Modules
+      run: go get -d 
+      
+    - name: Build Linux
+      run: go build -v ./main.go
+    
+    - name: Upload Linux Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: server_lin
+        path: ./snpt-server/main
+        
+    - name: Build Windows
+      run: env GOOS=windows GOARCH=amd64 go build -v ./main.go
+      
+    - name: Upload Windows Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: server_win.exe
+        path: ./snpt-server/main.exe
+  test:
+    runs-on: ubuntu-latest
+    env:
+      ENV_VAR_TEST: petermeier
+    defaults:
+      run:
+        working-directory: ./snpt-server
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Install Modules
+        run: go get -d
+
+      - name: Test Golang
+        run: go test ./tests/unit_test.go
+

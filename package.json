@@ -1,0 +1,19 @@
+{
+  "name": "snpt",
+  "version": "1.0.0",
+  "description": "![main workflow](https://github.com/Wadafacc/snpt/actions/workflows/go.yml/badge.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seiemens/snpt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seiemens/snpt/issues"
+  },
+  "homepage": "https://github.com/seiemens/snpt#readme"
+}
