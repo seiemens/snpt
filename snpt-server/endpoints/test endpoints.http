@@ -26,13 +26,13 @@ Accept: application/json
 { "id":"stJAHs", "title": "jordan", "content": "spastigrind", "cookie": "mongo"}
 
 ###
-DELETE http://localhost:3333/delete
+POST http://localhost:3333/delete
 Accept: application/json
 
 { "id":"OLxuS0", "cookie": "IkXo6uRUikQ8x35bFtZaRt8SCXt0wD23mqyVlYUjOGTP8IW6oeTFIKYIDxHppaPW83t38"}
 
 ###
-DELETE http://localhost:3333/deleteallbycookie
+POST http://localhost:3333/deleteallbycookie
 Accept: application/json
 
 {"cookie": "mongo"}
