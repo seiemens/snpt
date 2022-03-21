@@ -1,0 +1,35 @@
+.snpt {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+button,
+textarea {
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  display: block;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f3f3f3;
+  font-size: 2rem;
+  padding: 1rem;
+  color: rgb(75, 75, 75);
+  box-shadow: #dfdfdf -0.3rem 0.3rem;
+}
+#title {
+  min-width: 50rem;
+  max-width: 50rem;
+}
+#desc {
+  height: 10rem;
+  min-width: 50rem;
+  max-width: 50rem;
+  min-height: 10rem;
+  max-height: 30rem;
+}
+
+button:hover {
+  background-color: #ebebeb;
+  transition: 0.5s;
+}

@@ -1,0 +1,30 @@
+h1 {
+  font-size: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  float: left;
+}
+.header {
+  font-family: "Lato", sans-serif;
+  background-color: #f1f1f1;
+  height: 8rem;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+}
+.header a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.nav {
+  padding: 1rem;
+}
+.nav a {
+  display: block;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+}
+.nav a:hover {
+  text-decoration: underline;
+}

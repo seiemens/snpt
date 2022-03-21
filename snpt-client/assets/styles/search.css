@@ -1,0 +1,39 @@
+input,
+button {
+  font-family: "Lato", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: #f3f3f3;
+  font-size: 2rem;
+  padding: 1rem;
+  color: rgb(75, 75, 75);
+  box-shadow: #dfdfdf -0.3rem 0.3rem;
+  margin: 1rem 1rem 1rem 0.5rem;
+}
+
+::placeholder {
+  color: rgb(75, 75, 75);
+}
+
+input[type="submit"]:hover {
+  background-color: #ebebeb;
+  transition: 0.5s;
+}
+input[type="text"]:focus {
+  background-color: #ebebeb;
+}
+textarea:focus {
+  background-color: #ebebeb;
+}
+button:hover {
+  background-color: #ebebeb;
+  transition: 0.5s;
+}
+#desc {
+  height: 10rem;
+  min-width: 50rem;
+  max-width: 50rem;
+  min-height: 10rem;
+  max-height: 30rem;
+}

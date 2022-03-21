@@ -1,0 +1,49 @@
+.landing {
+  position: relative;
+  height: 100vh;
+  flex-direction: column;
+}
+.logo {
+  opacity: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 10rem;
+  font-weight: 300;
+  animation: textShadow 1.6s infinite;
+  animation: fade 1s forwards;
+}
+.sub {
+  opacity: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 5rem;
+  font-weight: 100;
+  font-style: italic;
+  animation: fade 1s forwards;
+  animation-delay: 1s;
+}
+.arrow {
+  position: absolute;
+  text-decoration: none;
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-size: 4rem;
+  bottom: 0;
+  animation: wavy 2s infinite;
+}
+
+.arrow:hover {
+  transition: 0.5s;
+  color: rgb(109, 109, 109);
+}
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes wavy {
+  0% {
+    transform: rotateY(-360deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
