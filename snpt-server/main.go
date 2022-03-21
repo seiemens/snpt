@@ -1,6 +1,9 @@
 /*
 Created by Ramon
 Date: 7.3.22
+functions:
+	main(the entrypoint of the programme)
+	CORSMiddleware
 */
 package main
 
@@ -11,6 +14,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//Initializes the Server and creates API endpoints
+// Uses CORSmiddleware for API
+//Values: none
 func main() {
 	lib.ConnectToDb()
 
@@ -30,6 +36,9 @@ func main() {
 		return
 	}
 }
+
+//Initializes the CORSmiddleware
+//Values:none
 func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Header("Access-Control-Allow-Origin", "*")

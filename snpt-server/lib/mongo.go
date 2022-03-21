@@ -1,9 +1,19 @@
 /*
 Created by Jordan
 Date: 7.3.22
+Functions:
+	ConnectToDB
+	CloseDBConnection
+	GetMongoSnippetByKey
+	GetAllSnippets
+	DeleteAllSnippetsByCookie
+	CreateSnippet
+	EditSnippet
+	DeleteSnippet
 */
 package lib
 
+//The Import obviously
 import (
 	"context"
 	"fmt"
@@ -17,9 +27,12 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+//Global Variables with Data needed by functions below
 var Uri = GoDotEnvVariable("MONGO_URL")
 var Client *mongo.Client
 
+//Establishes a Connection to the DB
+//Values: none
 func ConnectToDb() {
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(Uri))
 	if err != nil {
@@ -34,6 +47,8 @@ func ConnectToDb() {
 	fmt.Println("Successfully connected and pinged.")
 }
 
+//Closes the DB connection
+//Values: The mongoDBclient connection valiable
 func CloseDbConnection(client *mongo.Client) {
 	var err error
 	if err = client.Disconnect(context.TODO()); err != nil {
@@ -41,6 +56,8 @@ func CloseDbConnection(client *mongo.Client) {
 	}
 }
 
+//Gets a Snippet with an encoded Key provided by Frontend
+//Values: Key(encoded string), value(the value of the search)
 func GetMongoSnippetByKey(key string, value interface{}) []models.Snippet {
 	snptCollection := *Client.Database("snpt").Collection("snippets")
 	res, err := snptCollection.Find(context.Background(), bson.D{{key, primitive.Regex{Pattern: "^.*" + value.(string) + ".*", Options: ""}}})
@@ -54,6 +71,8 @@ func GetMongoSnippetByKey(key string, value interface{}) []models.Snippet {
 	return snippets
 }
 
+//Gets all Snippets
+//values: none
 func GetAllSnippets() []models.Snippet {
 	snptCollection := *Client.Database("snpt").Collection("snippets")
 	cursor, err := snptCollection.Find(context.Background(), bson.M{})
@@ -67,6 +86,8 @@ func GetAllSnippets() []models.Snippet {
 	return snippets
 }
 
+//Delete All snippets created by the User
+//values: cookie(the User)
 func DeleteAllSnippetsByCookie(cookie string) interface{} {
 	for _, v := range GetAllSnippets() {
 		if v.Cookie == cookie {
@@ -77,6 +98,8 @@ func DeleteAllSnippetsByCookie(cookie string) interface{} {
 	return "oge"
 }
 
+//Create a Snippet by the specific User
+//Values: Title(Title of snippet), content(The content of the Snippet), Cookie(The User which has given the command to create the Snippet)
 func CreateSnippet(title, content, cookie string) interface{} {
 
 	var idExist bool = true
@@ -108,6 +131,8 @@ func CreateSnippet(title, content, cookie string) interface{} {
 	return x
 }
 
+//Gets and Edits a snippet and saves it to DB again afterwards
+//values: id(the id of the Snippet), title(the title of the Snippet), content(the body of the Snippet), cookie(the User)
 func EditSnippet(id, title, content, cookie string) string {
 
 	snippetCollection := Client.Database("snpt").Collection("snippets")
@@ -135,6 +160,8 @@ func EditSnippet(id, title, content, cookie string) string {
 
 }
 
+//Deletes a snippet, that is in the DB, otherwise no action taken
+//Values: id(the ID of the snippet), cookie(the User)
 func DeleteSnippet(id, cookie string) string {
 	snippetCollection := Client.Database("snpt").Collection("snippets")
 	var shouldBeCookie string

@@ -1,6 +1,8 @@
 /*
 Created by Ramon
 Date: 7.3.22
+functions:
+	Snippet struct
 */
 package models
 
