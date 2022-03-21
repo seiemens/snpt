@@ -139,7 +139,7 @@ func DeleteSnippet(id, cookie string) string {
 		if err != nil {
 			log.Fatal(err)
 		}
-		return "Snippet has been created."
+		return "Snippet has been deleted."
 	}
 	return "You are most likely perhaps probably maybe possibly not the owner of this Item."
 }
