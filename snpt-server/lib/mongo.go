@@ -89,8 +89,8 @@ func CreateSnippet(title, content, cookie string) interface{} {
 
 	snptDB := Client.Database("snpt")
 	snippetCollection := snptDB.Collection("snippets")
-	res, _ := snippetCollection.InsertOne(context.Background(), x)
-	return res.InsertedID
+	snippetCollection.InsertOne(context.Background(), x)
+	return x.ID
 }
 
 func EditSnippet(id, title, content, cookie string) string {
