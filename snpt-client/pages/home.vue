@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div class="flex home">
-      <h3>Welcome to snpt!</h3>
+      <h3>Welcome to SNPT!</h3>
       <div class="home">
         <h4>
           Enjoy our Service, which is definitely better than pastebin.

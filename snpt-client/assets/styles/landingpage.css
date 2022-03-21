@@ -8,6 +8,7 @@
   font-family: "Lato", sans-serif;
   font-size: 10rem;
   font-weight: 300;
+  animation: textShadow 1.6s infinite;
   animation: fade 1s forwards;
 }
 .sub {

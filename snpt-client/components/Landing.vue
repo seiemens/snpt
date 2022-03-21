@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="landing flex">
+    <div class="landing flex crt">
       <div class="logo">SNPT</div>
       <div class="sub">Screw Pastebin</div>
       <NuxtLink to="/upload" class="arrow">&#8609;</NuxtLink>
