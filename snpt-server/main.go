@@ -22,6 +22,7 @@ func main() {
 	router.GET("/cookie", endpoints.CreateCookie)
 	router.POST("/create", endpoints.CreateSnippet)
 	router.POST("/edit", endpoints.EditSnippet)
+	router.DELETE("/delete", endpoints.DeleteSnippet)
 
 	errGin := router.Run("localhost:3333")
 	if errGin != nil {

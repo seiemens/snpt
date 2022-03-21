@@ -89,8 +89,13 @@ func CreateSnippet(title, content, cookie string) interface{} {
 
 	snptDB := Client.Database("snpt")
 	snippetCollection := snptDB.Collection("snippets")
-	snippetCollection.InsertOne(context.Background(), x)
-	return x.ID
+	_, err := snippetCollection.InsertOne(context.Background(), x)
+	if err != nil {
+		log.Fatal(err)
+
+	}
+	fmt.Println(x)
+	return x
 }
 
 func EditSnippet(id, title, content, cookie string) string {
@@ -118,4 +123,23 @@ func EditSnippet(id, title, content, cookie string) string {
 		return "You are most likely perhaps probably maybe possibly not the owner of this Item."
 	}
 
+}
+
+func DeleteSnippet(id, cookie string) string {
+	snippetCollection := Client.Database("snpt").Collection("snippets")
+	var shouldBeCookie string
+	test := GetMongoSnippetByKey("id", id)
+	for _, snippet := range test {
+		shouldBeCookie = snippet.Cookie
+	}
+
+	if shouldBeCookie == cookie {
+
+		_, err := snippetCollection.DeleteOne(context.Background(), bson.M{"id": id})
+		if err != nil {
+			log.Fatal(err)
+		}
+		return "Snippet has been created."
+	}
+	return "You are most likely perhaps probably maybe possibly not the owner of this Item."
 }
