@@ -35,7 +35,7 @@ func GoDotEnvVariable(key string) string {
 }
 
 //Creates a Random String with normal characters or if needed special characters
-//values: length(the length of the demanded string), includeSpecial(if SpecialCharacters are demanded)
+//values: length(the length of the demanded string), includeSpecial(if SpecialCharacters are demandeds)
 func GenerateRandomString(lenght int, includeSpecial bool) string {
 
 	var letterRunes []rune
