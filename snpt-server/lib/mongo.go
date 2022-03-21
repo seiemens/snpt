@@ -118,7 +118,7 @@ func EditSnippet(id, title, content, cookie string) string {
 		if err != nil {
 			log.Fatal(err)
 		}
-		return "Updated Document"
+		return "Updated Snippet"
 	} else {
 		return "You are most likely perhaps probably maybe possibly not the owner of this Item."
 	}
