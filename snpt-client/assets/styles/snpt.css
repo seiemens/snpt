@@ -28,3 +28,8 @@ textarea {
   min-height: 10rem;
   max-height: 30rem;
 }
+
+button:hover {
+  background-color: #ebebeb;
+  transition: 0.5s;
+}

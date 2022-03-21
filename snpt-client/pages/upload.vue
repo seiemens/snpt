@@ -26,7 +26,9 @@
       </form>
     </div>
     <div class="flex">
-      <h4 v-if="success"><i>SNPT uploaded!</i></h4>
+      <h4 v-if="success">
+        <i>SNPT uploaded! (id: {{ success }})</i>
+      </h4>
     </div>
   </div>
 </template>
@@ -56,7 +58,9 @@ export default {
       let data = {
         title: this.title,
         content: this.content,
+        cookie: document.cookie.split("=").pop(),
       };
+      console.log(data);
       axios
         .post("http://localhost:3333/create", data, {
           headers: {
@@ -65,7 +69,7 @@ export default {
         })
         .then((res) => {
           console.log(res);
-          this.success = res.data.success ? true : false;
+          this.success = res.data.answer.id;
         });
     },
   },
