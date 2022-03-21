@@ -1,3 +1,7 @@
+/*
+Created by: Ramon
+Date: 14.3.22
+*/
 package tests
 
 import (
@@ -5,6 +9,7 @@ import (
 	"testing"
 )
 
+//Tests the EnvVariables for its value
 func TestEnvVarValue(t *testing.T) {
 	key := "ENV_VAR_TEST"
 	value := util.GoDotEnvVariable(key)
@@ -14,6 +19,7 @@ func TestEnvVarValue(t *testing.T) {
 	}
 }
 
+//tests if the env var vas nonexistent
 func TestEnvVarNonExistentVeliu(t *testing.T) {
 	key := "ENV_VAR_TEST_NO"
 	value := util.GoDotEnvVariable(key)
@@ -23,6 +29,7 @@ func TestEnvVarNonExistentVeliu(t *testing.T) {
 	}
 }
 
+//tests the RandomString func, which returns a randongenerated string
 func TestRandomString(t *testing.T) {
 	expected := 5
 	value := len(util.GenerateRandomString(5, false))
