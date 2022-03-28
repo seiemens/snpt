@@ -5,8 +5,12 @@ Date: 14.3.22
 package tests
 
 import (
+	"context"
 	util "snpt/lib"
 	"testing"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 //Tests the EnvVariables for its value
@@ -35,5 +39,16 @@ func TestRandomString(t *testing.T) {
 	value := len(util.GenerateRandomString(5, false))
 	if value != expected {
 		t.Errorf("Value was incorrect, got %d, want %d", value, expected)
+	}
+}
+
+//test to see if you can read snpts from database
+func TestGetMongoSnippetByKey(t *testing.T) {
+	expected := "hello2"
+	Uri := util.GoDotEnvVariable("MONGO_URL")
+	util.Client, _ = mongo.Connect(context.TODO(), options.Client().ApplyURI(Uri))
+	value := util.GetMongoSnippetByKey("id", "D9Cq8V")
+	if value[0].Content != expected {
+		t.Errorf("Value was incorrect, got %s, want %s", value[0].Content, expected)
 	}
 }
