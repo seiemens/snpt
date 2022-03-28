@@ -1,4 +1,4 @@
-**User Stories**
+# User Stories
 
 *Functionality*<br>
 As a User i want to be able to upload my codesnippet <br>
@@ -11,7 +11,7 @@ As a User i want to be able manage my Snippets, in other words delete, create an
 As a User i want to be greeted by a comfortable looking page.<br>
 As a User i'd love to have some cool looking hover animations<br>
 
-**User Story Refinement**
+# Refinement
 
 *Functionality*
 As a User i now can create and Upload my own Snippet
