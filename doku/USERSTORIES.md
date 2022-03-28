@@ -7,13 +7,13 @@ As a User i want to be able to download snippets from other users<br>
 As a User i want to be able manage my Snippets, in other words delete, create and edit them<br>
 
 <br>
-*Design*
+*Design*<br>
 As a User i want to be greeted by a comfortable looking page.<br>
 As a User i'd love to have some cool looking hover animations<br>
 
 # Refinement
 
-*Functionality*
+*Functionality*<br>
 As a User i now can create and Upload my own Snippet
 As a User i can't have my own account, but i have a User token, which is bound to my User
 As a User i can share a Link to download snippets from other Users
