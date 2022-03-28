@@ -42,9 +42,6 @@ jobs:
         path: ./snpt-server/main.exe
   test:
     runs-on: ubuntu-latest
-    env:
-      ENV_VAR_TEST: ${{ secrets.ENV_VAR_TEST }}
-      MONGO_URL: ${{ secrets.MONGO_URL }}
     defaults:
       run:
         working-directory: ./snpt-server
@@ -60,5 +57,9 @@ jobs:
         run: go get -d
 
       - name: Test Golang
+      - shell: bash
+        env: 
+          ENV_VAR_TEST: ${{ secrets.ENV_VAR_TEST }}
+          MONGO_URL: ${{ secrets.MONGO_URL }}
         run: go test ./tests/unit_test.go
 
