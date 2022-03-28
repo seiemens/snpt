@@ -2,7 +2,7 @@
   <div>
     <div class="landing flex crt">
       <div class="logo">SNPT</div>
-      <div class="sub">Better Pastebin</div>
+      <div class="sub">Better, Faster, Stronger.</div>
       <NuxtLink to="/upload" class="arrow">&#8609;</NuxtLink>
     </div>
   </div>
