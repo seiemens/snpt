@@ -57,7 +57,6 @@ jobs:
         run: go get -d
 
       - name: Test Golang
-      - shell: bash
         env: 
           ENV_VAR_TEST: ${{ secrets.ENV_VAR_TEST }}
           MONGO_URL: ${{ secrets.MONGO_URL }}
