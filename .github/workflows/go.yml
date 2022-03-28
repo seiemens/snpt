@@ -43,7 +43,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      ENV_VAR_TEST: petermeier
+      ENV_VAR_TEST: ${{ secrets.ENV_VAR_TEST }}
+      MONGO_URL: ${{ secrets.MONGO_URL }}
     defaults:
       run:
         working-directory: ./snpt-server
